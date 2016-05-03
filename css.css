@@ -1,0 +1,64 @@
+#upload {
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+#info {
+	font-size: 75%;
+}
+#image {
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+#image input[type="text"] {
+	width: 100%;
+}
+#image img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	max-width: 100%;
+	max-height: 80%;
+}
+.gallery_container {
+  text-align: center;
+}
+.gallery_container img {
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+
+}
+.gallery_container img:hover {
+ box-shadow: 5px 5px 2px white;
+}
+.footer {
+  width: 75%;
+  margin: auto;  
+  padding: 20px;
+}
+.first_page {
+  width: 40%;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.2);  
+  padding: 20px;
+  border-radius: 5px;
+}
+.first_page p {
+  padding: 5px; 
+  width: 250px; 
+  margin: auto; 
+  font-size: 16pt;
+}
+.first_page a {
+  border-radius: 5px;
+}
+.single_img {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 40px 0 40px 0;
+}
+.single_img img {
+  width: 80%;
+  margin: auto;
+}
