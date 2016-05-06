@@ -25,6 +25,9 @@ if(isset($_GET['page']) && !empty($_GET['page'])) {
     session_destroy();
     header('Location: ' .$webhome);
   }
+  if($_GET['page'] == "report") {
+    include 'report.php';
+  }
   if($_GET['page'] == "error") {
     if($_GET['action'] == "404") {
       echo "<center>Houston, we have problem! The image that you are loking for is not found!<br><br></center>";

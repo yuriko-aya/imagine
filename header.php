@@ -19,6 +19,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav navbar-right">
 <?php
+echo'<li><a href="'.$webhome.'/report">Contact/Report</a></li>';
 if(isset($_SESSION) && !empty($_SESSION['user'])) {
   echo '<li><a href="'.$webhome.'/'.$_SESSION['user'].'/upload">Upload</a></li>
         <li><a href="'.$webhome.'/logout">Log Out</a></li>';
