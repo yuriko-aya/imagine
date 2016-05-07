@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 03, 2016 at 01:12 PM
+-- Generation Time: May 07, 2016 at 10:20 AM
 -- Server version: 10.0.24-MariaDB-7
 -- PHP Version: 7.0.4-7ubuntu2
 
@@ -19,6 +19,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `imagine`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(4) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `email` varchar(64) NOT NULL,
+  `report` varchar(64) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -50,6 +64,12 @@ CREATE TABLE `user` (
 --
 
 --
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `report`
 --
 ALTER TABLE `report`
@@ -65,6 +85,11 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `report`
 --
