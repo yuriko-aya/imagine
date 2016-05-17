@@ -1,0 +1,13 @@
+options +FollowSymlinks
+
+RewriteEngine on
+
+RewriteRule ^([^/.]+)/(view|report|delete)/([^.]*)\.(png|jpg|jpeg|gif)(?)$ index.php?page=$1&action=$2&file=$3.$4 [L]
+#RewriteRule ^([^/.]+)/(view)/([^.]*)\.jpg(?)$ index.php?page=$1&action=$2&file=$3.jpg [L]
+#RewriteRule ^([^/.]+)/(view)/([^.]*)\.jpeg(?)$ index.php?page=$1&action=$2&file=$3.jpeg [L]
+#RewriteRule ^([^/.]+)/(view)/([^.]*)\.gif(?)$ index.php?page=$1&action=$2&file=$3.gif [L]
+RewriteRule ^([^/.]+)/([^/.]+)(/?)$ index.php?page=$1&action=$2 [L]
+RewriteRule ^([^/.]+)(/?)$ index.php?page=$1 [L]
+
+#ErrorDocument 404 public/view/404.png
+ErrorDocument 404 /imagine/index.php?page=error&action=404
