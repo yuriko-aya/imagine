@@ -24,7 +24,9 @@ require_once "recaptchalib.php";
 
 // your secret key
 $secret = "";
- 
+
+$site_key = "";
+
 // empty response
 $response = null;
  

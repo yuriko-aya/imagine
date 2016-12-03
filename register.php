@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <input type="password" class="form-control" id="pwd" name="pwd">
   </div>
   <br>
-  <div class="g-recaptcha" data-sitekey="6LfCuR4TAAAAALH4cMYuU2ng9Uadz-MX2Q6wlRDO"></div>
+  <div class="g-recaptcha" data-sitekey="<?php echo $site_key; ?>"></div>
   <br>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

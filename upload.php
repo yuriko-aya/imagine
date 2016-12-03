@@ -8,7 +8,7 @@ echo '<div id="upload">
 		<input size="62"  name="file" type="file" accept="image/*" />
     </span>
     <br><br>
-    <div class="g-recaptcha" data-sitekey="6LfCuR4TAAAAALH4cMYuU2ng9Uadz-MX2Q6wlRDO"></div>
+    <div class="g-recaptcha" data-sitekey="'.$site_key.'"></div>
     <br>
 		<input class="btn btn-default" type="submit" value="Upload File" />
     </center>
