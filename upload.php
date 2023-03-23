@@ -13,7 +13,7 @@ echo '<div id="upload">
     </center>
 		</form>
 		<div id="info">
-		Max file size: 5mb <br/>
+		Max file size: 10mb <br/>
 		Supported formats: png, jpg, gif <br/>
 		Please do not upload anything illegal
 		</div>
