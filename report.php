@@ -1,7 +1,6 @@
 <div class="first_page">
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-if ($response != null && $response->success) {
   if(!isset($_POST['report']) || empty($_POST['report'])) {
     $laporan = "contact";
   } else {
@@ -12,10 +11,8 @@ if ($response != null && $response->success) {
   $pesan = $_POST['message']; 
   $regs = mysqli_query($con,"INSERT INTO contact(name, email, report, message) values ( '$nama', '$surel', '$laporan', '$pesan')") or die("failed! ".mysqli_error($con));
     echo '<center>Message sent!</center>';
-  } else {
-    echo "<center>Houston, we have problem! The chaptcha was wrong!</center>";
   }
-}
+
 ?>
 <form role="form" enctype="multipart/form-data" action="" method="post">
   <div class="form-group">
@@ -35,7 +32,6 @@ if ($response != null && $response->success) {
     <textarea class="form-control" id="message" name="message" rows="5"required></textarea>
   </div>
   <br>
-<div class="g-recaptcha" data-sitekey="6LfCuR4TAAAAALH4cMYuU2ng9Uadz-MX2Q6wlRDO"></div>
   <br>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

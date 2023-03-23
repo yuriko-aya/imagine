@@ -10,14 +10,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $checkname = mysqli_query($con,"SELECT * FROM user where uname='$uname'");
   $idexist = mysqli_num_rows($checkname);
   if($idexist!=0) {
-  echo "Houston, we have problem! That user name already taken!";
-  } elseif ($response != null && $response->success) {
+    echo "Houston, we have problem! That user name already taken!";
+  } else {
     $regs = mysqli_query($con,"INSERT INTO user(uname, pwd, level) values ( '$uname', '$password_hash', 'user')") or die("failed! ".mysqli_error($con));
     mkdir('up/'.$uname);
     echo '<div><h1 align="center">Congratulation!!</h1><br /><h2 align="center">Now You have registered as user in this site</h2><br /><h3 align="center"><a href="'.$webhome.'">Back to Home</a></h3></div>';
-  } else {
-    echo "Houston, we have problem! The chaptcha was wrong!";
   }
+  mysqli_close($con);
 }
 ?>
 <form role="form" enctype="multipart/form-data" action="" method="post">
@@ -30,7 +29,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <input type="password" class="form-control" id="pwd" name="pwd">
   </div>
   <br>
-  <div class="g-recaptcha" data-sitekey="<?php echo $site_key; ?>"></div>
   <br>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

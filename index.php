@@ -38,9 +38,12 @@ if(isset($_GET['page']) && !empty($_GET['page'])) {
     }
   }
 }
+
 if(isset($_GET['action']) && !empty($_GET['action'])) {
   if($_GET['action'] == "upload") {
     include 'upload.php';
+    include 'footer.php';
+    die();  
   }
   if($_GET['action'] == "view" && isset($_GET['file']) && !empty($_GET['file'])) {
   echo '<div class="single_img">';
@@ -51,11 +54,13 @@ if(isset($_GET['action']) && !empty($_GET['action'])) {
   }
   if($_GET['action'] == "delete" && isset($_GET['file']) && !empty($_GET['file'])) {
     if(file_exists('up/'.$_SESSION['user'].'/'.$_GET['file'])) {
+      delete_record($_GET['file']);
       unlink('up/'.$_SESSION['user'].'/'.$_GET['file']);
-      header('Location : '.$webhome.'/'.$_SESSION['user']);
+      // header('Location : '.$webhome.'/'.$_SESSION['user']);
+      // die();
     }
   } elseif($_GET['action'] != "report" && $_GET['action'] != "upload") {
-    echo "<center>Houston we have problem! The file that you want to delete is not exist!</center>";
+    echo "<center>Houston we have problem!</center>";
   }
   if($_GET['action'] == "report" && isset($_GET['file']) && !empty($_GET['file'])) {
     $imgfile = $_GET['file'];
@@ -68,6 +73,7 @@ if(isset($_GET['action']) && !empty($_GET['action'])) {
     die();
   }
 }
+
 echo '<br><br><div class="gallery_container">';
 if(!isset($_SESSION['user']) && empty($_SESSION['user'])) {
   echo '<div class="first_page">

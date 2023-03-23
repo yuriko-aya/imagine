@@ -3,10 +3,7 @@
 <meta name="description" content="IMAGINE Simple Image Hosting by Yuriko Aya">
     <title><?php echo $title; ?></title>
 <link rel="stylesheet" href="<?php echo $webhome; ?>/css.css" type="text/css" />
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/superhero/bootstrap.min.css" type="text/css"/>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<link rel="stylesheet" href="<?php echo $webhome; ?>/assets/bootstrap.min.css" type="text/css"/>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">

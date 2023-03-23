@@ -8,7 +8,6 @@ echo '<div id="upload">
 		<input size="62"  name="file" type="file" accept="image/*" />
     </span>
     <br><br>
-    <div class="g-recaptcha" data-sitekey="'.$site_key.'"></div>
     <br>
 		<input class="btn btn-default" type="submit" value="Upload File" />
     </center>
@@ -20,28 +19,24 @@ echo '<div id="upload">
 		</div>
   	</div>';
 
-	if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if ($response != null && $response->success) {
-  		$ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
-	  	if ((in_array($_FILES['file']['type'], $allowedMime))
-	  	&& (in_array(strtolower($ext), $allowedExts)) 
-	  	&& (@getimagesize($_FILES['file']['tmp_name']) !== false)
-	  	&& ($_FILES['file']['size'] <= $maxsize)) {
-	  		$md5 = substr(md5_file($_FILES['file']['tmp_name']), 0, 7);
-	  		$newname = time().$md5.'.'.$ext;
-	  		move_uploaded_file($_FILES['file']['tmp_name'], $filedir.'/'.$act_user.'/'.$newname);
-	  		$baseurl = $webhome.'/'.$filedir.'/'.$act_user;
-	  		$imgurl = $baseurl.'/'.$newname;
-	  		print '<br />';
-	  		print '<center>Your URL:<br />';
-	  		print '<input type="text" value="'.$imgurl.'" ><br /><br />';
-	  		print '<a href="'.$webhome.'/'.$act_user.'/view/'.$newname.'"><img src="'.$imgurl.'" width="520"></a><br /></center>';
-	  	} 
-	    }	else {
-			  print '<br />';
-			  print '<center>Houston we have problem! Something went wrong </center>';
-		  }
-		
-	  }
-?>
-
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+	$ext = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+	if ((in_array($_FILES['file']['type'], $allowedMime))
+	&& (in_array(strtolower($ext), $allowedExts)) 
+	&& (@getimagesize($_FILES['file']['tmp_name']) !== false)
+	&& ($_FILES['file']['size'] <= $maxsize)) {
+		$md5 = substr(md5_file($_FILES['file']['tmp_name']), 0, 12);
+		$newname = time().$md5.'.'.$ext;
+		record_file($_SESSION['user'], $newname);
+		move_uploaded_file($_FILES['file']['tmp_name'], $filedir.'/'.$act_user.'/'.$newname);
+		$imgurl = $webhome.'/img/'.$newname;
+		print '<br />';
+		print '<center>Your URL:<br />';
+		print '<a href="'.$imgurl.'" target="_blank">'.$imgurl.'</a><br /><br />';
+		print '<a href="'.$webhome.'/'.$act_user.'/view/'.$newname.'"><img src="'.$imgurl.'" width="520"></a><br /></center>';
+		include('footer.php');
+	} else {
+			print '<br />';
+			print '<center>Houston we have problem! Something went wrong </center>';
+	}
+}
