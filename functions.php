@@ -47,3 +47,28 @@ function delete_record($filename) {
   $sql_result = mysqli_query($con, $sql) or die("failed! ".mysqli_error($con));
   mysqli_close($con);
 }
+
+function is_super_user($user) {
+  include 'config.php';
+  include 'dbcon.php';
+  $user_level = '';
+  $sql = "SELECT level FROM user WHERE uname = '$user'";
+  $sql_result = mysqli_query($con, $sql) or die("failed! ".mysqli_error($con));
+  while($row = mysqli_fetch_assoc($sql_result)) {
+    $user_level .= $row["level"];
+  }
+  mysqli_close($con);
+  if($user_level == 'superuser') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function captcha_validation($captcha) {
+  if($captcha == $_SESSION['captcha']) {
+    return true;
+  } else {
+    return false;
+  }
+}

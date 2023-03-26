@@ -21,7 +21,7 @@ if(isset($_SESSION) && !empty($_SESSION['user'])) {
   echo '<li><a href="'.$webhome.'/'.$_SESSION['user'].'/upload">Upload</a></li>
         <li><a href="'.$webhome.'/logout">Log Out</a></li>';
   if($_SESSION['level'] == "superuser") {
-    echo '<li><a href="'.$webhome.'/'.$_SESSION['user'].'/superuser">Admin</a></li>';
+    echo '<li><a href="'.$webhome.'/management">Admin</a></li>';
   }
 } else {
   echo '<li><a href="'.$webhome.'/login">login</a></li>

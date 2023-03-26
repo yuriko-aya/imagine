@@ -28,6 +28,11 @@ if(isset($_GET['page']) && !empty($_GET['page'])) {
   if($_GET['page'] == "report") {
     include 'report.php';
   }
+  if($_GET['page'] == "management") {
+    include 'admin.php';
+    include 'footer.php';
+    die();      
+  }
   if($_GET['page'] == "error") {
     if($_GET['action'] == "404") {
       echo "<center>Houston, we have problem! The image that you are loking for is not found!<br><br></center>";
@@ -79,7 +84,7 @@ if(!isset($_SESSION['user']) && empty($_SESSION['user'])) {
   echo '<div class="first_page">
     <a href="'.$webhome.'/login" class="btn btn-primary btn-block" role="button"><p>Login</p></a><br><br>
     <a href="'.$webhome.'/register" class="btn btn-success btn-block" role="button"><p>Register</p></a><br><br>
-    <a href="'.$webhome.'/login/public" class="btn btn-info btn-block" role="button"><p>Public Access</p></a><br><br>
+    <!-- <a href="'.$webhome.'/login/public" class="btn btn-info btn-block" role="button"><p>Public Access</p></a><br><br> -->
     </div>';
   echo '<br><br></div>';
 } else {

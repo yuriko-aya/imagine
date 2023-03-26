@@ -19,6 +19,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['user'] = $_POST['public'];
     $_SESSION['level'] = $_POST['public'];
     header('Location: '.$webhome.'/'.$_POST['public']);
+  } elseif(captcha_validation($_POST['captchaEntry']) != true) {
+    echo "Captcha Failed";
   } else {
     $uname = $_POST['username'];
     $password_entered = $_POST['pwd'];
@@ -48,6 +50,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   <div class="form-group">
     <label for="pwd">Password:</label>
     <input type="password" class="form-control" id="pwd" name="pwd">
+  </div>
+  <div class="form-group">
+    <img src="/captchalib.php">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" id="captchaEntry" name="captchaEntry" placeholder="CAPTCHA">
   </div>
   <button type="submit" class="btn btn-success btn-block">LOGIN</button>
 </form>
